@@ -18,6 +18,7 @@ bare_runtime = "~0.1.0"
 
 [[pins]]
 bare_runtime = { path='rts' }
+mspm0 = { url='https://github.com/JeremyGrosser/mspm0.git' }
 
 [configuration.values]
 mspm0.Device = "MSPM0L1306"
@@ -28,9 +29,8 @@ mspm0.Device = "MSPM0L1306"
 [build-switches]
 development.optimization = ["-Og", "-gnatn2"]
 release.optimization = ["-Os", "-gnatn2", "-flto"]
+# -flto requires modifying linker.xml to use gcc-ar and gcc-ranlib wrappers
+# https://github.com/AdaCore/gprconfig_kb/commit/b5064577b7a990a4ee6c229aac4df7fb79917347
 
 [gpr-set-externals]
 BARE_RUNTIME_SWITCHES = "-mcpu=cortex-m0plus"
-
-[[pins]]
-mspm0 = { url='https://github.com/JeremyGrosser/mspm0.git' }
