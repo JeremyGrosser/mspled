@@ -1,0 +1,34 @@
+name = "mspled"
+description = ""
+version = "0.1.0-dev"
+
+authors = ["Jeremy Grosser"]
+maintainers = ["Jeremy Grosser <jeremy@synack.me>"]
+maintainers-logins = ["JeremyGrosser"]
+licenses = "BSD-3-Clause"
+website = ""
+tags = []
+
+executables = ["mspled"]
+
+[[depends-on]]
+mspm0 = "~0.1.0-dev"
+gnat_arm_elf = "^14.2.1"
+bare_runtime = "~0.1.0"
+
+[[pins]]
+mspm0 = { path='../mspm0' }
+bare_runtime = { path='rts' }
+
+[configuration.values]
+mspm0.Device = "MSPM0L1306"
+
+[build-profiles]
+"*" = "release"
+
+[build-switches]
+development.optimization = ["-Og", "-gnatn2"]
+release.optimization = ["-Os", "-gnatn2", "-flto"]
+
+[gpr-set-externals]
+BARE_RUNTIME_SWITCHES = "-mcpu=cortex-m0plus"

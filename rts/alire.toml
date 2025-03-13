@@ -1,0 +1,10 @@
+name = "bare_runtime"
+description = "Minimal Ada/SPARK run-time for embedded or other restricted targets"
+version = "0.1.0"
+
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+
+[configuration]
+generate_gpr = false
+generate_c = false
