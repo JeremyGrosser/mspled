@@ -38,7 +38,9 @@ package body WS2812 is
    procedure Init_TIMG is
       use MSPM0.Device;
    begin
-      MSPM0.Device.PINCM (Pin_Mux) := Pin_Config;
+      PA.RSTCTL := RSTCTL_RESET;
+      PA.PWREN := PWREN_ENABLE;
+      PINCM (Pin_Mux) := Pin_Config;
 
       TIMG.RSTCTL := RSTCTL_RESET;
       TIMG.PWREN := PWREN_ENABLE;

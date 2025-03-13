@@ -1,5 +1,4 @@
 with MSPM0.SysTick; use MSPM0.SysTick;
-with MSPM0.Device; use MSPM0.Device;
 with MSPM0; use MSPM0;
 with WS2812;
 
@@ -8,8 +7,6 @@ procedure Mspled is
    I : WS2812.LED_Index := 0;
    T : Time;
 begin
-   PA.RSTCTL := RSTCTL_RESET;
-   PA.PWREN := PWREN_ENABLE;
    WS2812.Initialize;
    MSPM0.SysTick.Enable;
 
